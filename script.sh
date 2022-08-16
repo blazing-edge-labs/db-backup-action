@@ -1,5 +1,6 @@
 TIMESTAMP=`date +%Y-%m-%d-%H:%M:%S-%Z`
 
+heroku pg:backups:capture --app $HEROKU_APP_NAME
 heroku pg:backups:download --app $HEROKU_APP_NAME
 
 aws configure set aws_access_key_id $FILEBASE_ACCESS_KEY_ID 
