@@ -1,4 +1,4 @@
-TIMESTAMP=`date +%Y-%m-%d_%H:%M:%S_%Z`
+TIMESTAMP=`date +%Y-%m-%d-%H:%M:%S-%Z`
 
 heroku pg:backups:download --app $HEROKU_APP_NAME
 
