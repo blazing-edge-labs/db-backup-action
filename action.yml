@@ -1,0 +1,49 @@
+name: "Backup Databases"
+description: "Backup databases to S3"
+inputs:
+  HEROKU_API_KEY:
+    description: "Heroku API Key."
+    required: true
+    default: ""
+
+  HEROKU_APP_NAME:
+    description: "Name of the Heroku App to backup."
+    required: true
+    default: ""
+
+  FILEBASE_ACCESS_KEY_ID:
+    description: "Filebase access key id."
+    required: true
+    default: ""
+
+  FILEBASE_SECRET_ACCESS_KEY:
+    description: "Filebase secret access key id."
+    required: true
+    default: ""
+
+  FILEBASE_BUCKET_NAME:
+    description: "Filebase bucket name."
+    required: true
+    default: ""
+
+  FILEBASE_FOLDER_NAME:
+    description: "Name of the folder within the bucket."
+    required: false
+    default: "backup"
+
+  FILEBASE_FILE_NAME:
+    description: "Name of the backup dump file."
+    required: false
+    default: "backup"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    HEROKU_API_KEY: ${{ inputs.HEROKU_API_KEY  }}
+    HEROKU_APP_NAME: ${{ inputs.HEROKU_APP_NAME  }}
+    FILEBASE_ACCESS_KEY_ID: ${{ inputs.FILEBASE_ACCESS_KEY_ID  }}
+    FILEBASE_SECRET_ACCESS_KEY: ${{ inputs.FILEBASE_SECRET_ACCESS_KEY  }}
+    FILEBASE_BUCKET_NAME: ${{ inputs.FILEBASE_BUCKET_NAME  }}
+    FILEBASE_FOLDER_NAME: ${{ inputs.FILEBASE_FOLDER_NAME }}
+    FILEBASE_FILE_NAME: ${{ inputs.FILEBASE_FILE_NAME }}
