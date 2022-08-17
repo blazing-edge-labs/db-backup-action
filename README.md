@@ -46,4 +46,4 @@ jobs:
 ```
 
 
-> Note: This code downloads the latest database dump for the specified Heroku APPs default database, so keep in mind to set up scheduled backups on heroku before proceeding.
+> Note: This code creates a backup and then downloads it for the specified Heroku APPs default database.
